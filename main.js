@@ -1,4 +1,4 @@
-var radioBtns = document.querySelector('#radio-button');
+var radioBtns = document.querySelectorAllgit ('.radio-button');
 var displayMessage = document.querySelector('#show-message');
 var recieveMessageBtn = document.querySelector('#recieve-message')
 var mantraImg = document.querySelector('.mantra-img')
@@ -9,17 +9,8 @@ function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 };
 
-function getSelectedInput() {
-  var selected;
-  radioBtns.forEach(function(btn) {
-    if (btn.checked) {
-      selected = btn.value
-    };
-  });
-  return selected
-};
-
 function generateAffirmation() {
+  displayMessage.innerHTML = "";
   var randomAffirmation = affirmation[getRandomIndex(affirmation)];
 
   displayMessage.insertAdjacentHTML('afterbegin', 
@@ -32,6 +23,7 @@ function generateAffirmation() {
 };
 
 function generateMantra() {
+  displayMessage.innerHTML = "";
   var randomMantra = mantra[getRandomIndex(mantra)];
 
   displayMessage.insertAdjacentHTML('afterbegin',
@@ -43,12 +35,26 @@ function generateMantra() {
   mantraImg.classList.add('hidden');
 };
 
-function generateMessage() {
-  var checked = getSelectedInput();
-  checked === 'affirmation' ? generateAffirmation() : generateMantra(checked);
+function getSelectedInput() {
+  var selected;
+  console.log(radioBtns);
+  radioBtns.forEach(function(btn) {
+    if (btn.checked) {
+      selected = btn.value
+    };
+  });
+  return selected
 };
 
-
+function generateMessage() {
+  console.log('hi');
+  var checked = getSelectedInput();
+  if (checked === 'affirmation') {
+    generateAffirmation()
+  } else {
+    generateMantra(checked);
+  };
+};
 
 // function toggleImg(elementOne, elementTwo) {
 //   elementOne.classList.toggle('hidden');
