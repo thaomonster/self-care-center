@@ -6,3 +6,76 @@ dark-blue - #134d71;
 white - #ffffff;
 black - #000000;
 */
+
+body {
+  background: linear-gradient(#134d71, #8c9fac, #f7e4bf) no-repeat center fixed;
+  background-size: cover;
+  font-family: 'Quicksand', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  text-align: center;
+  color: #ffffff;
+  font-size: 1.8em;
+  font-weight: bold;
+  padding: 1.4em;
+  margin-bottom: 1.8em;
+}
+
+h1 {
+  color: #ffffff;
+  font-size: 1.2em;
+}
+
+label {
+  margin-left: 0.8em;
+}
+
+#button-container {
+  margin: 1em 0em 1em 0em;
+  font-style: italic;
+}
+
+#radio-button {
+  margin-left: 11.5em;
+}
+
+#recieve-message {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.9em;
+  background-color: #134d71;
+  color: #ffffff;
+  border-radius: 0.3em;
+  border: 1em;
+  height: 1.8em;
+  width: 12.5em;
+}
+
+#mantra-img {
+  height: 5em;
+  width: 5em;
+  margin-top: 1.9em;
+}
+
+.user-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  height: 5.5em;
+  width: 30em;
+  border-radius: 0.5em;
+  margin-bottom: 6em;
+}
+
+.show-message {
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff;
+  height: 9em;
+  width: 48em;
+  border-radius: 0.5em;
+}
