@@ -1,4 +1,4 @@
-var radioBtns = document.querySelectorAllgit ('.radio-button');
+var radioBtns = document.querySelectorAll('.radio-button');
 var displayMessage = document.querySelector('#show-message');
 var recieveMessageBtn = document.querySelector('#recieve-message')
 var mantraImg = document.querySelector('.mantra-img')
@@ -14,8 +14,8 @@ function generateAffirmation() {
   var randomAffirmation = affirmation[getRandomIndex(affirmation)];
 
   displayMessage.insertAdjacentHTML('afterbegin', 
- `<div>
-  <p>${randomAffirmation}</p>
+ `<div class="message">
+  <p class="message">${randomAffirmation}</p>
   </div>`
   );
 
@@ -28,7 +28,7 @@ function generateMantra() {
 
   displayMessage.insertAdjacentHTML('afterbegin',
   `<div>
-  <p>${randomMantra}</p>
+  <p class="message">${randomMantra}</p>
   </div>`
   );
 
@@ -47,13 +47,9 @@ function getSelectedInput() {
 };
 
 function generateMessage() {
-  console.log('hi');
+
   var checked = getSelectedInput();
-  if (checked === 'affirmation') {
-    generateAffirmation()
-  } else {
-    generateMantra(checked);
-  };
+  checked === 'affirmation' ? generateAffirmation() : generateMantra(checked)
 };
 
 // function toggleImg(elementOne, elementTwo) {

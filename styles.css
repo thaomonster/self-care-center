@@ -58,6 +58,12 @@ label {
   height: 5em;
   width: 5em;
   margin-top: 1.9em;
+  font-weight: 2em;
+}
+
+.message {
+  margin-top: 3.3em;
+  font-size: 1.1em;
 }
 
 .user-container {
