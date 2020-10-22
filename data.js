@@ -1,4 +1,4 @@
-var affirmation = {
+var affirmation = [
 "I forgive myself and set myself free.",
 "I believe I can be all that I want to be.",
 "I am in the process of becoming the best version of myself.",
@@ -12,9 +12,9 @@ var affirmation = {
 "Every day I am getting healthier and stronger.",
 "I honor my body by trusting the signals that it sends me.",
 "I manifest perfect health by making smart choices.",
-};
+];
 
-var mantra = {
+var mantra = [
 "Breathing in, I send myself love. Breathing out, I send love to someone else who needs it.",
 "Don’t let yesterday take up too much of today.",
 "Every day is a second chance.",
@@ -30,4 +30,4 @@ var mantra = {
 "The only constant is change.",
 "Onward and upward.",
 "I am the sky, the rest is weather.",
-};
+];
