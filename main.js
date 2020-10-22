@@ -3,7 +3,7 @@ var displayMessage = document.querySelector('#show-message');
 var recieveMessageBtn = document.querySelector('#recieve-message')
 var mantraImg = document.querySelector('.mantra-img')
 
-recieveMessageBtn.addEventListener('click', generateAffirmation);
+recieveMessageBtn.addEventListener('click', generateMessage);
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
