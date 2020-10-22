@@ -3,7 +3,7 @@ var displayMessage = document.querySelector('#show-message');
 var recieveMessageBtn = document.querySelector('#recieve-message')
 var mantraImg = document.querySelector('.mantra-img')
 
-recieveMessageBtn.addEventListener('click', generateMessage);
+recieveMessageBtn.addEventListener('click', generateAffirmation);
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -28,7 +28,7 @@ function generateAffirmation() {
   </div>`
   );
 
-  mantraImg.classList.add('hidden')
+  mantraImg.classList.add('hidden');
 };
 
 function generateMantra() {
@@ -40,12 +40,17 @@ function generateMantra() {
   </div>`
   );
 
-  mantraImg.classList.add('hidden')
+  mantraImg.classList.add('hidden');
+};
+
+function generateMessage() {
+  var checked = getSelectedInput();
+  checked === 'affirmation' ? generateAffirmation() : generateMantra(checked);
 };
 
 
 
-function toggleImg(elementOne, elementTwo) {
-  elementOne.classList.toggle('hidden');
-  elementTwo.classList.toggle('hidden');
-};
+// function toggleImg(elementOne, elementTwo) {
+//   elementOne.classList.toggle('hidden');
+//   elementTwo.classList.toggle('hidden');
+// };
