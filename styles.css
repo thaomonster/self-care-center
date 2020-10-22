@@ -39,7 +39,7 @@ label {
   font-style: italic;
 }
 
-#radio-button {
+#space-radio-button {
   margin-left: 11.5em;
 }
 
@@ -54,10 +54,16 @@ label {
   width: 12.5em;
 }
 
-#mantra-img {
+.mantra-img {
   height: 5em;
   width: 5em;
   margin-top: 1.9em;
+  font-weight: 2em;
+}
+
+.message {
+  margin-top: 3.3em;
+  font-size: 1.1em;
 }
 
 .user-container {
@@ -71,11 +77,15 @@ label {
   margin-bottom: 6em;
 }
 
-.show-message {
+.show-message-container {
   display: flex;
   justify-content: center;
   background-color: #ffffff;
   height: 9em;
   width: 48em;
   border-radius: 0.5em;
+}
+
+.hidden {
+  display: none;
 }
