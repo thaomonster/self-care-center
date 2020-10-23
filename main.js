@@ -37,19 +37,25 @@ function generateMantra() {
 
 function getSelectedInput() {
   var selected;
-  console.log(radioBtns);
   radioBtns.forEach(function(btn) {
     if (btn.checked) {
       selected = btn.value
     };
   });
   return selected
+  
 };
 
 function generateMessage() {
-
   var checked = getSelectedInput();
-  checked === 'affirmation' ? generateAffirmation() : generateMantra(checked)
+  for (var i = 0; i < radioBtns.length; i++) {
+    if (radioBtns[i].checked) {
+      recieveMessageBtn.disabled = false;
+      checked === 'affirmation' ? generateAffirmation() : generateMantra(checked)
+    } else {
+      recieveMessageBtn.disabled = true;
+    };
+  };
 };
 
 // function toggleImg(elementOne, elementTwo) {
