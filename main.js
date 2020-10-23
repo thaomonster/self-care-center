@@ -43,18 +43,13 @@ function getSelectedInput() {
     };
   });
   return selected
-  
 };
 
 function generateMessage() {
   var checked = getSelectedInput();
-  for (var i = 0; i < radioBtns.length; i++) {
-    if (radioBtns[i].checked) {
-      recieveMessageBtn.disabled = false;
-      checked === 'affirmation' ? generateAffirmation() : generateMantra(checked)
-    } else {
-      recieveMessageBtn.disabled = true;
-    };
+
+  if (checked) {
+    checked === 'affirmation' ? generateAffirmation() : generateMantra(checked);
   };
 };
 
