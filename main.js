@@ -1,7 +1,8 @@
 var radioBtns = document.querySelectorAll('.radio-button');
 var displayMessage = document.querySelector('#show-message');
-var recieveMessageBtn = document.querySelector('#recieve-message')
-var mantraImg = document.querySelector('.mantra-img')
+var recieveMessageBtn = document.querySelector('#recieve-message');
+var mantraImg = document.querySelector('.mantra-img');
+var btnErrorMsg = document.querySelector('#button-error-message');
 
 recieveMessageBtn.addEventListener('click', generateMessage);
 
@@ -50,6 +51,9 @@ function generateMessage() {
 
   if (checked) {
     checked === 'affirmation' ? generateAffirmation() : generateMantra(checked);
+    btnErrorMsg.classList.add('hidden')
+  } else {
+    btnErrorMsg.classList.remove('hidden')
   };
 };
 

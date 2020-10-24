@@ -49,9 +49,20 @@ label {
   background-color: #134d71;
   color: #ffffff;
   border-radius: 0.3em;
-  border: 1em;
+  border: 0em;
   height: 1.8em;
   width: 12.5em;
+}
+
+#button-error-message {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.9em;
+  margin-top: 1em;
+  color: #ffffff;
+}
+
+.disabled-color {
+  background-color: lightgrey;
 }
 
 .mantra-img {
