@@ -1,9 +1,14 @@
 var radioBtns = document.querySelectorAll('.radio-button');
+var clearBtn = document.querySelector('#clear-message');
+var recieveMessageBtn = document.querySelector('#recieve-message');
+
+var btnErrorMsg = document.querySelector('#button-error-message');
 var displayMessage = document.querySelector('#show-message');
-var recieveMessageBtn = document.querySelector('#recieve-message')
-var mantraImg = document.querySelector('.mantra-img')
+var mantraImg = document.querySelector('.mantra-img');
+
 
 recieveMessageBtn.addEventListener('click', generateMessage);
+clearBtn.addEventListener('click', clearMessage);
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -14,12 +19,10 @@ function generateAffirmation() {
   var randomAffirmation = affirmation[getRandomIndex(affirmation)];
 
   displayMessage.insertAdjacentHTML('afterbegin', 
- `<div class="message">
-  <p class="message">${randomAffirmation}</p>
+  `<div>
+    <p class="message" id="show-message">${randomAffirmation}</p>
   </div>`
   );
-
-  mantraImg.classList.add('hidden');
 };
 
 function generateMantra() {
@@ -28,16 +31,13 @@ function generateMantra() {
 
   displayMessage.insertAdjacentHTML('afterbegin',
   `<div>
-  <p class="message">${randomMantra}</p>
+    <p class="message" id="show-message">${randomMantra}</p>
   </div>`
   );
-
-  mantraImg.classList.add('hidden');
 };
 
 function getSelectedInput() {
   var selected;
-  console.log(radioBtns);
   radioBtns.forEach(function(btn) {
     if (btn.checked) {
       selected = btn.value
@@ -47,12 +47,26 @@ function getSelectedInput() {
 };
 
 function generateMessage() {
-
   var checked = getSelectedInput();
-  checked === 'affirmation' ? generateAffirmation() : generateMantra(checked)
+
+  if (checked) {
+    checked === 'affirmation' ? generateAffirmation() : generateMantra(checked);
+    mantraImg.classList.add('hidden')
+    btnErrorMsg.classList.add('hidden');
+    clearBtn.classList.remove('hidden');
+    displayMessage.classList.remove('hidden')
+  } else {
+    btnErrorMsg.classList.remove('hidden')
+  };
 };
 
-// function toggleImg(elementOne, elementTwo) {
+function clearMessage() {
+  displayMessage.classList.add('hidden');
+  clearBtn.classList.add('hidden');
+  mantraImg.classList.remove('hidden');
+};
+
+// function toggleElement(elementOne, elementTwo) {
 //   elementOne.classList.toggle('hidden');
 //   elementTwo.classList.toggle('hidden');
 // };
