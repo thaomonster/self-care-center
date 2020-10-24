@@ -3,6 +3,7 @@ var displayMessage = document.querySelector('#show-message');
 var recieveMessageBtn = document.querySelector('#recieve-message');
 var mantraImg = document.querySelector('.mantra-img');
 var btnErrorMsg = document.querySelector('#button-error-message');
+var clearBtn = document.querySelector('#clear-message');
 
 recieveMessageBtn.addEventListener('click', generateMessage);
 
@@ -52,12 +53,13 @@ function generateMessage() {
   if (checked) {
     checked === 'affirmation' ? generateAffirmation() : generateMantra(checked);
     btnErrorMsg.classList.add('hidden')
+    clearBtn.classList.remove('hidden')
   } else {
     btnErrorMsg.classList.remove('hidden')
   };
 };
 
-// function toggleImg(elementOne, elementTwo) {
+// function toggleElement(elementOne, elementTwo) {
 //   elementOne.classList.toggle('hidden');
 //   elementTwo.classList.toggle('hidden');
 // };

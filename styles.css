@@ -34,7 +34,7 @@ header {
   display: none;
 }
 
-/* Radio & Recieve Message Btn Container */
+/* Radio & Recieve Message Btn Section */
 #button-container {
   margin: 1em 0em 1em 0em;
   font-style: italic;
@@ -77,16 +77,31 @@ label {
   margin-bottom: 6em;
 }
 
-/*~~~ Image & Message Box Container ~~~*/
+/* Image, Message & Clear Btn Container */
+#clear-btn-position {
+  position: fixed;
+  margin: 6.8em 0 0 0;
+}
+
+#clear-message {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.9em;
+  background-color: #134d71;
+  color: #ffffff;
+  border-radius: 0.3em;
+  border: 0em;
+  height: 1.8em;
+  width: 10em;
+}
+
 .mantra-img {
   height: 5em;
   width: 5em;
-  margin-top: 1.9em;
-  font-weight: 2em;
+  margin-top: 1.8em;
 }
 
 .message {
-  margin-top: 3.3em;
+  margin-top: 2.5em;
   font-size: 1.1em;
 }
 
