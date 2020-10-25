@@ -58,7 +58,8 @@ function generateMessage() {
 
   if (checked) {
     checked === 'affirmation' ? generateAffirmation() : generateMantra(checked);
-    showHideElement()
+    showHideElement();
+    clearBtn.disabled = false;
   } else {
     btnErrorMsg.classList.remove('hidden')
   };
@@ -67,27 +68,23 @@ function generateMessage() {
 function clearMessage() {
   displayMsg.innerHTML = "";
   displayMsg.classList.add('hidden');
-  clearBtn.classList.add('hidden');
   mantraImg.classList.remove('hidden');
 };
 
 function showHideElement() {
   btnErrorMsg.classList.add('hidden');
   mantraImg.classList.add('hidden');
-  clearBtn.classList.remove('hidden');
   displayMsg.classList.remove('hidden');
   inputType.classList.add('hidden');
   userMsgInput.classList.add('hidden')
-  submitBtn.classList.add('hidden')
-  addMsgBtn.classList.remove('hidden')
 };
 
 function adduserMsg() {
   inputType.value = "";
   userMsgInput.value = "";
   mantraImg.classList.add('hidden');
-  clearBtn.classList.add('hidden');
-  toggleElement(inputType, userMsgInput, submitBtn, addMsgBtn, displayMsg);
+  submitBtn.disabled = false;
+  toggleElement(inputType, userMsgInput, displayMsg);
 };
 
 function submitUserInput(e) {
@@ -96,8 +93,6 @@ function submitUserInput(e) {
 
   inputType.value === "" ? inputErrorMsg.classList.remove('hidden')
   : inputType.value.toLowerCase('affirmation') === 'affirmation' ? (affirmation.push(userMsgInput.value)) && generateUserInput(): (mantra.push(userMsgInput.value)) && generateUserInput()
-
-  clearBtn.classList.remove('hidden');
 };
 
 function generateUserInput() {
@@ -107,14 +102,12 @@ function generateUserInput() {
   </div>`
   );
 
-  toggleElement(inputType, userMsgInput, submitBtn, addMsgBtn, displayMsg);
+  toggleElement(inputType, userMsgInput, displayMsg);
   inputErrorMsg.classList.add('hidden');
 };
 
-function toggleElement(elementOne, elementTwo, elementThree, elementFour, elementFive) {
+function toggleElement(elementOne, elementTwo, elementThree) {
   elementOne.classList.toggle('hidden');
   elementTwo.classList.toggle('hidden');
   elementThree.classList.toggle('hidden');
-  elementFour.classList.toggle('hidden');
-  elementFive.classList.toggle('hidden');
 };

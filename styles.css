@@ -84,7 +84,7 @@ label {
 /* Image, Message Style, & Clear Btn Section */
 #button-position {
   position: fixed;
-  margin: 6.8em 0 0 0;
+  margin-top: 7em
 }
 
 .btn-style {
@@ -121,10 +121,6 @@ label {
 /* Add Button & User Form Input Section */
 #add-button {
   margin-top: 3em;
-}
-
-#submit-button {
-  margin: 1em 14em;
 }
 
 #input-error-message {
