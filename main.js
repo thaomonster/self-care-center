@@ -63,6 +63,7 @@ function generateMessage() {
     showHideElement();
     hideErrorMsg();
     clearBtn.disabled = false;
+    submitBtn.disabled = true;
   } else {
     btnErrorMsg.classList.remove('hidden');
   };
@@ -91,14 +92,16 @@ function displayForm() {
 function submitUserInput() {
   displayMsg.innerHTML = "";
 
-  if (inputType.value === "") {
+  if (inputType.value === '') {
     inputErrorMsg.classList.remove('hidden')
   } else if (inputType.value.toLowerCase('affirmation') === 'affirmation') {
     affirmation.push(userMsgInput.value);
     generateUserInput();
-  } else {
+    hideErrorMsg();
+  } else if (inputType.value.toLowerCase('mantra') === 'mantra') {
     mantra.push(userMsgInput.vale);
     generateUserInput();
+    hideErrorMsg();
   };
 
   clearBtn.disabled = false;
