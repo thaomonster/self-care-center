@@ -127,6 +127,12 @@ label {
   margin: 1em 8.6em;
 }
 
+#input-error-message {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.9em;
+  margin: -1.5em 0;
+}
+
 .user-input {
   display: flex;
   flex-direction: column;

@@ -5,6 +5,8 @@ var addBtn = document.querySelector('#add-button');
 var submitBtn = document.querySelector('#submit-button')
 
 var btnErrorMsg = document.querySelector('#button-error-message');
+var inputErrorMsg = document.querySelector('#input-error-message');
+
 var displayMessage = document.querySelector('#show-message');
 var mantraImg = document.querySelector('.mantra-img');
 var inputType = document.querySelector('#type-of-message');
@@ -12,7 +14,7 @@ var userMessage = document.querySelector('#user-message');
 
 recieveMessageBtn.addEventListener('click', generateMessage);
 clearBtn.addEventListener('click', clearMessage);
-addBtn.addEventListener('click', userMessageInput);
+addBtn.addEventListener('click', userFormInput);
 submitBtn.addEventListener('click', submitUserInput);
 
 function getRandomIndex(array) {
@@ -76,19 +78,33 @@ function addHideElement() {
   displayMessage.classList.remove('hidden');
 };
 
-function userMessageInput() {
+function userFormInput() {
   inputType.classList.remove('hidden');
   userMessage.classList.remove('hidden');
   submitBtn.classList.remove('hidden');
   mantraImg.classList.add('hidden');
-  addBtn.classList.add('hidden')
+  addBtn.classList.add('hidden');
 };
 
-function submitUserInput() {
+function submitUserInput(e) {
+  e.preventDefault();
   
+  inputType.value === "" ? inputErrorMsg.classList.remove('hidden')
+  : inputType.value.toLowerCase('affirmation') === 'affirmation' ? affirmation.push(userMessage.value) : mantra.push(userMessage.value);
+
+  displayMessage.insertAdjacentHTML('afterbegin',
+  `<div>
+    <p class="message" id="show-message">${userMessage.value}</p>
+  </div>`
+  );
+
+  inputType.classList.add('hidden');
+  userMessage.classList.add('hidden');
+  submitBtn.classList.add('hidden');
+  addBtn.classList.remove('hidden');
 }
 
-// function toggleElement(elementOne, elementTwo) {
-//   elementOne.classList.toggle('hidden');
-//   elementTwo.classList.toggle('hidden');
-// };
+function toggleElement(elementOne, elementTwo) {
+  elementOne.classList.toggle('hidden');
+  elementTwo.classList.toggle('hidden');
+};
