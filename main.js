@@ -1,14 +1,15 @@
 var radioBtns = document.querySelectorAll('.radio-button');
-var clearBtn = document.querySelector('#clear-message');
+var clearBtn = document.querySelector('#clear-button');
 var recieveMessageBtn = document.querySelector('#recieve-message');
+var addBtn = document.querySelector('#add-button');
 
 var btnErrorMsg = document.querySelector('#button-error-message');
 var displayMessage = document.querySelector('#show-message');
 var mantraImg = document.querySelector('.mantra-img');
 
-
 recieveMessageBtn.addEventListener('click', generateMessage);
 clearBtn.addEventListener('click', clearMessage);
+addBtn.addEventListener('click', userMessageInput);
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -51,10 +52,7 @@ function generateMessage() {
 
   if (checked) {
     checked === 'affirmation' ? generateAffirmation() : generateMantra(checked);
-    mantraImg.classList.add('hidden')
-    btnErrorMsg.classList.add('hidden');
-    clearBtn.classList.remove('hidden');
-    displayMessage.classList.remove('hidden')
+    addHideElement()
   } else {
     btnErrorMsg.classList.remove('hidden')
   };
@@ -66,7 +64,15 @@ function clearMessage() {
   mantraImg.classList.remove('hidden');
 };
 
-// function toggleElement(elementOne, elementTwo) {
-//   elementOne.classList.toggle('hidden');
-//   elementTwo.classList.toggle('hidden');
-// };
+function addHideElement() {
+  btnErrorMsg.classList.add('hidden');
+  mantraImg.classList.add('hidden')
+  btnErrorMsg.classList.add('hidden');
+  clearBtn.classList.remove('hidden');
+  displayMessage.classList.remove('hidden');
+}
+
+function toggleElement(elementOne, elementTwo) {
+  elementOne.classList.toggle('hidden');
+  elementTwo.classList.toggle('hidden');
+};

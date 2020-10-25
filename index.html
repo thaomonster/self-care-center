@@ -11,8 +11,8 @@
     <h1>Which type of message?</h1>
     <section class="user-container">
       <form id="button-container">
-        <input type="radio" name="message-type-button" value="affirmation" class="radio-button"><label>affirmation</label>
-        <input type="radio" name="message-type-button" value="mantra"  class="radio-button" id="space-radio-button"><label>mantra</label>
+        <input type="radio" name="radio-button" value="affirmation" class="radio-button"><label>affirmation</label>
+        <input type="radio" name="radio-button" value="mantra" class="radio-button" id="space-radio-button"><label>mantra</label>
       </form>
       <div>
         <button id="recieve-message">Recieve Message</button>
@@ -24,9 +24,17 @@
         <img class="mantra-img" src="./assets/meditate.svg" alt="mantra">
         <p class="message" id="show-message"></p>
       </div>
-      <div id="clear-btn-position">
-        <button class="hidden" id="clear-message">Clear Message</button>
+      <div id="button-position">
+        <button class="btn-style" id="add-button">Add Message</button>
+        <button class="hidden btn-style" id="clear-button">Clear Message</button>
       </div>
+      <form>
+        <input type="text" name="user-input-form" value="" placeholder="Type affirmation or mantra here." class="hidden"><n/input>
+        <input type="text" name="user-input-form" value="" placeholder="Enter message here." class="hidden"></input>
+        <div>
+          <button class="hidden btn-style" id="submit-button">Submit</button>
+        </div>
+      </form>
     </section>
     <script type="text/javascript" src="data.js"></script>
     <script type="text/javascript" src="main.js"></script>
