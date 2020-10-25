@@ -2,6 +2,7 @@ var radioBtns = document.querySelectorAll('.radio-button');
 var clearBtn = document.querySelector('#clear-button');
 var recieveMessageBtn = document.querySelector('#recieve-message');
 var addBtn = document.querySelector('#add-button');
+var submitBtn = document.querySelector('#submit-button')
 
 var btnErrorMsg = document.querySelector('#button-error-message');
 var displayMessage = document.querySelector('#show-message');
@@ -12,6 +13,7 @@ var userMessage = document.querySelector('#user-message');
 recieveMessageBtn.addEventListener('click', generateMessage);
 clearBtn.addEventListener('click', clearMessage);
 addBtn.addEventListener('click', userMessageInput);
+submitBtn.addEventListener('click', submitUserInput);
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -77,8 +79,14 @@ function addHideElement() {
 function userMessageInput() {
   inputType.classList.remove('hidden');
   userMessage.classList.remove('hidden');
+  submitBtn.classList.remove('hidden');
   mantraImg.classList.add('hidden');
+  addBtn.classList.add('hidden')
 };
+
+function submitUserInput() {
+  
+}
 
 // function toggleElement(elementOne, elementTwo) {
 //   elementOne.classList.toggle('hidden');

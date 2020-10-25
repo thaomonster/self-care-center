@@ -123,6 +123,10 @@ label {
   margin-top: 3em;
 }
 
+#submit-button {
+  margin: 1em 8.6em;
+}
+
 .user-input {
   display: flex;
   flex-direction: column;
