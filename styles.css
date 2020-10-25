@@ -124,7 +124,7 @@ label {
 }
 
 #submit-button {
-  margin: 1em 8.6em;
+  margin: 1em 14em;
 }
 
 #input-error-message {
@@ -136,7 +136,7 @@ label {
 .user-input {
   display: flex;
   flex-direction: column;
-  width: 30em;
+  width: 42em;
   height: 1.8em;
   margin: 2em 0;
 }
