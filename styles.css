@@ -31,7 +31,7 @@ header {
 }
 
 .hidden {
-  display: none;
+  display: none!important;
 }
 
 /* Radio & Recieve Message Btn Section */
@@ -81,11 +81,7 @@ label {
   margin-bottom: 6em;
 }
 
-/* Image, Message, Add & Clear Btn Section */
-#add-button {
-  margin-top: 3em;
-}
-
+/* Image, Message Style, & Clear Btn Section */
 #button-position {
   position: fixed;
   margin: 6.8em 0 0 0;
@@ -120,4 +116,17 @@ label {
   height: 9em;
   width: 48em;
   border-radius: 0.5em;
+}
+
+/* Add Button & User Form Input Section */
+#add-button {
+  margin-top: 3em;
+}
+
+.user-input {
+  display: flex;
+  flex-direction: column;
+  width: 30em;
+  height: 1.8em;
+  margin: 2em 0;
 }

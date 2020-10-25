@@ -6,6 +6,8 @@ var addBtn = document.querySelector('#add-button');
 var btnErrorMsg = document.querySelector('#button-error-message');
 var displayMessage = document.querySelector('#show-message');
 var mantraImg = document.querySelector('.mantra-img');
+var inputType = document.querySelector('#type-of-message');
+var userMessage = document.querySelector('#user-message');
 
 recieveMessageBtn.addEventListener('click', generateMessage);
 clearBtn.addEventListener('click', clearMessage);
@@ -70,9 +72,15 @@ function addHideElement() {
   btnErrorMsg.classList.add('hidden');
   clearBtn.classList.remove('hidden');
   displayMessage.classList.remove('hidden');
-}
-
-function toggleElement(elementOne, elementTwo) {
-  elementOne.classList.toggle('hidden');
-  elementTwo.classList.toggle('hidden');
 };
+
+function userMessageInput() {
+  inputType.classList.remove('hidden');
+  userMessage.classList.remove('hidden');
+  mantraImg.classList.add('hidden');
+};
+
+// function toggleElement(elementOne, elementTwo) {
+//   elementOne.classList.toggle('hidden');
+//   elementTwo.classList.toggle('hidden');
+// };
