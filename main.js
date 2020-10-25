@@ -2,7 +2,7 @@ var radioBtns = document.querySelectorAll('.radio-button');
 var clearBtn = document.querySelector('#clear-button');
 var recieveMsgBtn = document.querySelector('#recieve-message');
 var addMsgBtn = document.querySelector('#add-button');
-var submitBtn = document.querySelector('#submit-button')
+var submitBtn = document.querySelector('#submit-button');
 
 var btnErrorMsg = document.querySelector('#button-error-message');
 var inputErrorMsg = document.querySelector('#input-error-message');
@@ -14,7 +14,7 @@ var userMsgInput = document.querySelector('#user-message');
 
 recieveMsgBtn.addEventListener('click', generateMessage);
 clearBtn.addEventListener('click', clearMessage);
-addMsgBtn.addEventListener('click', adduserMsg);
+addMsgBtn.addEventListener('click', displayForm);
 submitBtn.addEventListener('click', submitUserInput);
 
 function getRandomIndex(array) {
@@ -27,6 +27,7 @@ function generateAffirmation() {
 
   displayMsg.insertAdjacentHTML('afterbegin', 
   `<div>
+    <img class="mantra-img hidden" src="./assets/meditate.svg" alt="mantra">
     <p class="message" id="show-message">${randomAffirmation}</p>
   </div>`
   );
@@ -38,6 +39,7 @@ function generateMantra() {
 
   displayMsg.insertAdjacentHTML('afterbegin',
   `<div>
+    <img class="mantra-img hidden" src="./assets/meditate.svg" alt="mantra">
     <p class="message" id="show-message">${randomMantra}</p>
   </div>`
   );
@@ -61,64 +63,78 @@ function generateMessage() {
     showHideElement();
     clearBtn.disabled = false;
   } else {
-    btnErrorMsg.classList.remove('hidden')
+    btnErrorMsg.classList.remove('hidden');
   };
 };
 
 function clearMessage() {
   displayMsg.innerHTML = "";
-  displayMsg.classList.add('hidden');
-  mantraImg.classList.remove('hidden');
+  toggleElement(mantraImg, displayMsg);
 };
 
 function showHideElement() {
-  btnErrorMsg.classList.add('hidden');
-  mantraImg.classList.add('hidden');
-  displayMsg.classList.remove('hidden');
-  inputType.classList.add('hidden');
-  userMsgInput.classList.add('hidden')
+  hideErrorMsg();
+  toggleElement(inputType, userMsgInput);
+  addHiddenClass();
+  removeHiddenClass();
 };
 
-function adduserMsg() {
+function displayForm() {
   inputType.value = "";
   userMsgInput.value = "";
-  mantraImg.classList.add('hidden');
-  submitBtn.disabled = false;
-  toggleElement(inputType, userMsgInput, displayMsg);
+  addHiddenClass();
+  clearBtn.disabled = true;
+  toggleElement(inputType, userMsgInput);
 };
 
 function submitUserInput() {
+  displayMsg.innerHTML = "";
+
   if (inputType.value === "") {
     inputErrorMsg.classList.remove('hidden')
   } else if (inputType.value.toLowerCase('affirmation') === 'affirmation') {
-      affirmation.push(userMsgInput.value);
-      generateUserInput();
-      enableDisableBtn(submitBtn, clearBtn)
+    affirmation.push(userMsgInput.value);
   } else {
-    mantra.push(userMsgInput.value);
-    generateUserInput();
-    enableDisableBtn(submitBtn, clearBtn)
+    mantra.push(userMsgInput.vale);
   };
+  generateUserInput()
+  clearBtn.disabled = false;
 };
 
 function generateUserInput() {
+  toggleElement(inputType, userMsgInput);
+  hideErrorMsg();
+  removeHiddenClass();
+
   displayMsg.insertAdjacentHTML('afterbegin',
   `<div>
     <p class="message" id="show-message">${userMsgInput.value}</p>
   </div>`
   );
-
-  toggleElement(inputType, userMsgInput,displayMsg);
-  inputErrorMsg.classList.add('hidden');
 };
 
-function toggleElement(elementOne, elementTwo, elementThree) {
+function toggleElement(elementOne, elementTwo) {
   elementOne.classList.toggle('hidden');
   elementTwo.classList.toggle('hidden');
-  elementThree.classList.toggle('hidden');
 };
 
-function enableDisableBtn(btnOne, btnTwo) {
-  btnOne.disabled = true;
-  btnTwo.disabled = false;
-}
+// function enableDisableBtn(btnOne, btnTwo) {
+//   btnOne.disabled = true;
+//   btnTwo.disabled = false;
+// };
+
+function hideErrorMsg() {
+  inputErrorMsg.classList.add('hidden');
+  btnErrorMsg.classList.add('hidden');
+};
+
+function addHiddenClass() {
+  mantraImg.classList.add('hidden');
+  inputType.classList.add('hidden');
+  userMsgInput.classList.add('hidden');
+  displayMsg.classList.add('hidden');
+};
+
+function removeHiddenClass() {
+  displayMsg.classList.remove('hidden');
+};
