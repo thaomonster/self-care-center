@@ -61,6 +61,7 @@ function generateMessage() {
   if (checked) {
     checked === 'affirmation' ? generateAffirmation() : generateMantra(checked);
     showHideElement();
+    hideErrorMsg();
     clearBtn.disabled = false;
   } else {
     btnErrorMsg.classList.remove('hidden');
@@ -73,7 +74,6 @@ function clearMessage() {
 };
 
 function showHideElement() {
-  hideErrorMsg();
   toggleElement(inputType, userMsgInput);
   addHiddenClass();
   removeHiddenClass();
@@ -83,8 +83,9 @@ function displayForm() {
   inputType.value = "";
   userMsgInput.value = "";
   addHiddenClass();
-  clearBtn.disabled = true;
   toggleElement(inputType, userMsgInput);
+  clearBtn.disabled = true;
+  submitBtn.disabled = false;
 };
 
 function submitUserInput() {
@@ -94,16 +95,17 @@ function submitUserInput() {
     inputErrorMsg.classList.remove('hidden')
   } else if (inputType.value.toLowerCase('affirmation') === 'affirmation') {
     affirmation.push(userMsgInput.value);
+    generateUserInput();
   } else {
     mantra.push(userMsgInput.vale);
+    generateUserInput();
   };
-  generateUserInput()
+
   clearBtn.disabled = false;
 };
 
 function generateUserInput() {
   toggleElement(inputType, userMsgInput);
-  hideErrorMsg();
   removeHiddenClass();
 
   displayMsg.insertAdjacentHTML('afterbegin',
@@ -118,16 +120,6 @@ function toggleElement(elementOne, elementTwo) {
   elementTwo.classList.toggle('hidden');
 };
 
-// function enableDisableBtn(btnOne, btnTwo) {
-//   btnOne.disabled = true;
-//   btnTwo.disabled = false;
-// };
-
-function hideErrorMsg() {
-  inputErrorMsg.classList.add('hidden');
-  btnErrorMsg.classList.add('hidden');
-};
-
 function addHiddenClass() {
   mantraImg.classList.add('hidden');
   inputType.classList.add('hidden');
@@ -137,4 +129,9 @@ function addHiddenClass() {
 
 function removeHiddenClass() {
   displayMsg.classList.remove('hidden');
+};
+
+function hideErrorMsg() {
+  btnErrorMsg.classList.add('hidden');
+  inputErrorMsg.classList.add('hidden')
 };
