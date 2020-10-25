@@ -6,7 +6,7 @@ dark-blue - #134d71;
 white - #ffffff;
 black - #000000;
 */
-/* ~~~~~~ Background & Body ~~~~~~~~~~~ */
+/* Background, Body & Button Styles */
 body {
   background: linear-gradient(#134d71, #8c9fac, #f7e4bf) no-repeat center fixed;
   background-size: cover;
@@ -14,6 +14,17 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.btn-style {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.9em;
+  /* background-color: #134d71; */
+  color: #000000;
+  border-radius: 0.3em;
+  border: 0em;
+  height: 1.8em;
+  width: 10em;
 }
 
 h1 {
@@ -85,17 +96,6 @@ label {
 #button-position {
   position: fixed;
   margin-top: 7em
-}
-
-.btn-style {
-  font-family: 'Quicksand', sans-serif;
-  font-size: 0.9em;
-  background-color: #134d71;
-  color: #ffffff;
-  border-radius: 0.3em;
-  border: 0em;
-  height: 1.8em;
-  width: 10em;
 }
 
 .mantra-img {

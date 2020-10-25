@@ -87,12 +87,18 @@ function adduserMsg() {
   toggleElement(inputType, userMsgInput, displayMsg);
 };
 
-function submitUserInput(e) {
-  e.preventDefault();
-  displayMsg.innerHTML = "";
-
-  inputType.value === "" ? inputErrorMsg.classList.remove('hidden')
-  : inputType.value.toLowerCase('affirmation') === 'affirmation' ? (affirmation.push(userMsgInput.value)) && generateUserInput(): (mantra.push(userMsgInput.value)) && generateUserInput()
+function submitUserInput() {
+  if (inputType.value === "") {
+    inputErrorMsg.classList.remove('hidden')
+  } else if (inputType.value.toLowerCase('affirmation') === 'affirmation') {
+      affirmation.push(userMsgInput.value);
+      generateUserInput();
+      enableDisableBtn(submitBtn, clearBtn)
+  } else {
+    mantra.push(userMsgInput.value);
+    generateUserInput();
+    enableDisableBtn(submitBtn, clearBtn)
+  };
 };
 
 function generateUserInput() {
@@ -102,7 +108,7 @@ function generateUserInput() {
   </div>`
   );
 
-  toggleElement(inputType, userMsgInput, displayMsg);
+  toggleElement(inputType, userMsgInput,displayMsg);
   inputErrorMsg.classList.add('hidden');
 };
 
@@ -111,3 +117,8 @@ function toggleElement(elementOne, elementTwo, elementThree) {
   elementTwo.classList.toggle('hidden');
   elementThree.classList.toggle('hidden');
 };
+
+function enableDisableBtn(btnOne, btnTwo) {
+  btnOne.disabled = true;
+  btnTwo.disabled = false;
+}
