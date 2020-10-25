@@ -1,20 +1,20 @@
 var radioBtns = document.querySelectorAll('.radio-button');
 var clearBtn = document.querySelector('#clear-button');
-var recieveMessageBtn = document.querySelector('#recieve-message');
-var addBtn = document.querySelector('#add-button');
+var recieveMsgBtn = document.querySelector('#recieve-message');
+var addMsgBtn = document.querySelector('#add-button');
 var submitBtn = document.querySelector('#submit-button')
 
 var btnErrorMsg = document.querySelector('#button-error-message');
 var inputErrorMsg = document.querySelector('#input-error-message');
 
-var displayMessage = document.querySelector('.message');
+var displayMsg = document.querySelector('.message');
 var mantraImg = document.querySelector('.mantra-img');
 var inputType = document.querySelector('#type-of-message');
-var userMessage = document.querySelector('#user-message');
+var userMsgInput = document.querySelector('#user-message');
 
-recieveMessageBtn.addEventListener('click', generateMessage);
+recieveMsgBtn.addEventListener('click', generateMessage);
 clearBtn.addEventListener('click', clearMessage);
-addBtn.addEventListener('click', userFormInput);
+addMsgBtn.addEventListener('click', adduserMsg);
 submitBtn.addEventListener('click', submitUserInput);
 
 function getRandomIndex(array) {
@@ -22,10 +22,10 @@ function getRandomIndex(array) {
 };
 
 function generateAffirmation() {
-  displayMessage.innerHTML = "";
+  displayMsg.innerHTML = "";
   var randomAffirmation = affirmation[getRandomIndex(affirmation)];
 
-  displayMessage.insertAdjacentHTML('afterbegin', 
+  displayMsg.insertAdjacentHTML('afterbegin', 
   `<div>
     <p class="message" id="show-message">${randomAffirmation}</p>
   </div>`
@@ -33,10 +33,10 @@ function generateAffirmation() {
 };
 
 function generateMantra() {
-  displayMessage.innerHTML = "";
+  displayMsg.innerHTML = "";
   var randomMantra = mantra[getRandomIndex(mantra)];
 
-  displayMessage.insertAdjacentHTML('afterbegin',
+  displayMsg.insertAdjacentHTML('afterbegin',
   `<div>
     <p class="message" id="show-message">${randomMantra}</p>
   </div>`
@@ -62,10 +62,15 @@ function generateMessage() {
   } else {
     btnErrorMsg.classList.remove('hidden')
   };
+
+  inputType.classList.add('hidden');
+  userMsgInput.classList.add('hidden')
+  submitBtn.classList.add('hidden')
+  addMsgBtn.classList.remove('hidden')
 };
 
 function clearMessage() {
-  displayMessage.classList.add('hidden');
+  displayMsg.classList.add('hidden');
   clearBtn.classList.add('hidden');
   mantraImg.classList.remove('hidden');
 };
@@ -74,32 +79,35 @@ function showHideElement() {
   btnErrorMsg.classList.add('hidden');
   mantraImg.classList.add('hidden');
   clearBtn.classList.remove('hidden');
-  displayMessage.classList.remove('hidden');
+  displayMsg.classList.remove('hidden');
 };
 
-function userFormInput() {
+function adduserMsg() {
   inputType.value = "";
-  userMessage.value = "";
+  userMsgInput.value = "";
   mantraImg.classList.add('hidden');
-  toggleElement(inputType, userMessage, submitBtn, addBtn, displayMessage);
+  clearBtn.classList.add('hidden')
+  toggleElement(inputType, userMsgInput, submitBtn, addMsgBtn, displayMsg);
 };
 
 function submitUserInput(e) {
   e.preventDefault();
-  displayMessage.innerHTML = "";
+  displayMsg.innerHTML = "";
 
   inputType.value === "" ? inputErrorMsg.classList.remove('hidden')
-  : inputType.value.toLowerCase('affirmation') === 'affirmation' ? (affirmation.push(userMessage.value)) && generateUserInput(): (mantra.push(userMessage.value)) && generateUserInput()
+  : inputType.value.toLowerCase('affirmation') === 'affirmation' ? (affirmation.push(userMsgInput.value)) && generateUserInput(): (mantra.push(userMsgInput.value)) && generateUserInput()
+
+  clearBtn.classList.remove('hidden');
 };
 
 function generateUserInput() {
-  displayMessage.insertAdjacentHTML('afterbegin',
+  displayMsg.insertAdjacentHTML('afterbegin',
   `<div>
-    <p class="message" id="show-message">${userMessage.value}</p>
+    <p class="message" id="show-message">${userMsgInput.value}</p>
   </div>`
   );
 
-  toggleElement(inputType, userMessage, submitBtn, addBtn, displayMessage);
+  toggleElement(inputType, userMsgInput, submitBtn, addMsgBtn, displayMsg);
   inputErrorMsg.classList.add('hidden');
 };
 
