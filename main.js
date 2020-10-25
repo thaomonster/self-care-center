@@ -62,14 +62,10 @@ function generateMessage() {
   } else {
     btnErrorMsg.classList.remove('hidden')
   };
-
-  inputType.classList.add('hidden');
-  userMsgInput.classList.add('hidden')
-  submitBtn.classList.add('hidden')
-  addMsgBtn.classList.remove('hidden')
 };
 
 function clearMessage() {
+  displayMsg.innerHTML = "";
   displayMsg.classList.add('hidden');
   clearBtn.classList.add('hidden');
   mantraImg.classList.remove('hidden');
@@ -80,13 +76,17 @@ function showHideElement() {
   mantraImg.classList.add('hidden');
   clearBtn.classList.remove('hidden');
   displayMsg.classList.remove('hidden');
+  inputType.classList.add('hidden');
+  userMsgInput.classList.add('hidden')
+  submitBtn.classList.add('hidden')
+  addMsgBtn.classList.remove('hidden')
 };
 
 function adduserMsg() {
   inputType.value = "";
   userMsgInput.value = "";
   mantraImg.classList.add('hidden');
-  clearBtn.classList.add('hidden')
+  clearBtn.classList.add('hidden');
   toggleElement(inputType, userMsgInput, submitBtn, addMsgBtn, displayMsg);
 };
 
