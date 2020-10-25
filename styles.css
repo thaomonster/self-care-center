@@ -31,7 +31,7 @@ header {
 }
 
 .hidden {
-  display: none;
+  display: none!important;
 }
 
 /* Radio & Recieve Message Btn Section */
@@ -45,6 +45,10 @@ header {
   font-size: 0.9em;
   margin-top: 1em;
   color: #ffffff;
+}
+
+input[type='radio'] { 
+  transform: scale(1.3); 
 }
 
 label {
@@ -77,13 +81,13 @@ label {
   margin-bottom: 6em;
 }
 
-/* Image, Message & Clear Btn Container */
-#clear-btn-position {
+/* Image, Message Style, & Clear Btn Section */
+#button-position {
   position: fixed;
   margin: 6.8em 0 0 0;
 }
 
-#clear-message {
+.btn-style {
   font-family: 'Quicksand', sans-serif;
   font-size: 0.9em;
   background-color: #134d71;
@@ -101,7 +105,7 @@ label {
 }
 
 .message {
-  margin-top: 2.5em;
+  margin-top: 3em;
   font-size: 1.1em;
 }
 
@@ -112,4 +116,27 @@ label {
   height: 9em;
   width: 48em;
   border-radius: 0.5em;
+}
+
+/* Add Button & User Form Input Section */
+#add-button {
+  margin-top: 3em;
+}
+
+#submit-button {
+  margin: 1em 8.6em;
+}
+
+#input-error-message {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.9em;
+  margin: -1.5em 0;
+}
+
+.user-input {
+  display: flex;
+  flex-direction: column;
+  width: 30em;
+  height: 1.8em;
+  margin: 2em 0;
 }
