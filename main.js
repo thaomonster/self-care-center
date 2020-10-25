@@ -72,39 +72,41 @@ function clearMessage() {
 
 function addHideElement() {
   btnErrorMsg.classList.add('hidden');
-  mantraImg.classList.add('hidden')
-  btnErrorMsg.classList.add('hidden');
+  mantraImg.classList.add('hidden');
   clearBtn.classList.remove('hidden');
   displayMessage.classList.remove('hidden');
 };
 
 function userFormInput() {
-  inputType.classList.remove('hidden');
-  userMessage.classList.remove('hidden');
-  submitBtn.classList.remove('hidden');
-  mantraImg.classList.add('hidden');
-  addBtn.classList.add('hidden');
+  toggleElement(inputType, userMessage, mantraImg, submitBtn, addBtn);
 };
 
 function submitUserInput(e) {
   e.preventDefault();
-  
-  inputType.value === "" ? inputErrorMsg.classList.remove('hidden')
-  : inputType.value.toLowerCase('affirmation') === 'affirmation' ? affirmation.push(userMessage.value) : mantra.push(userMessage.value);
+  displayMessage.innerHTML = "";
 
+  inputType.value === "" ? inputErrorMsg.classList.remove('hidden')
+  : inputType.value.toLowerCase('affirmation') === 'affirmation' ? (affirmation.push(userMessage.value)) && generateUserInput(): (mantra.push(userMessage.value)) && generateUserInput()
+};
+
+function generateUserInput() {
   displayMessage.insertAdjacentHTML('afterbegin',
   `<div>
     <p class="message" id="show-message">${userMessage.value}</p>
   </div>`
   );
 
-  inputType.classList.add('hidden');
-  userMessage.classList.add('hidden');
-  submitBtn.classList.add('hidden');
-  addBtn.classList.remove('hidden');
+  toggleElement(inputType, userMessage, submitBtn, addBtn, inputErrorMsg)
+// submitBtn.classList.add('hidden');
+// addBtn.classList.remove('hidden');
+// inputErrorMsg.classList.add('hidden')
 }
 
-function toggleElement(elementOne, elementTwo) {
+function toggleElement(elementOne, elementTwo, elementThree, elementFour, elementFive) {
   elementOne.classList.toggle('hidden');
   elementTwo.classList.toggle('hidden');
+  elementThree.classList.toggle('hidden');
+  elementFour.classList.toggle('hidden');
+  elementFive.classList.toggle('hidden');
+  // elementSix.classList.toggle('hidden');
 };
