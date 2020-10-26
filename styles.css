@@ -27,7 +27,15 @@ body {
   width: 10em;
 }
 
-.disabled-btn-style {
+button:focus {
+  outline:0;
+}
+
+button:active {
+  background-color: #78a7c6!important;
+}
+
+.disabled-btn-style[disabled] {
   font-family: 'Quicksand', sans-serif;
   font-size: 0.9em;
   background-color: lightgray;
