@@ -15,26 +15,23 @@
         <input type="radio" name="radio-button" value="mantra" class="radio-button" id="space-radio-button"><label>mantra</label>
       </form>
       <div>
-        <button id="recieve-message">Recieve Message</button>
+        <button class="recieve-message">Recieve Message</button>
       </div>
-      <h2 class="hidden" id="button-error-message">Please select a button.</h2>
     </section>
     <section class="show-message-container">
       <div>
         <img class="mantra-img" src="./assets/meditate.svg" alt="mantra">
-        <p class="message" id="show-message"></p>
+        <p class="message hidden" id="show-message"></p>
       </div>
       <div id="button-position">
         <button class="btn-style" id="add-button">Add Message</button>
-        <button class="hidden btn-style" id="clear-button">Clear Message</button>
+        <button class="btn-style" id="clear-button">Clear Message</button>
+        <button class="btn-style" id="submit-button">Submit</button>
       </div>
       <form> 
         <input type="text" name="user-input-form" placeholder="Type affirmation or mantra here." class="user-input hidden" id="type-of-message">
-        <h2 class="hidden" id="input-error-message">Please type in affirmation or mantra above.</h2>
+        <h2 class="hidden" id="input-error-message">Please type in affirmation or mantra above or type in your own message below.</h2>
         <input type="text" name="user-input-form" placeholder="Enter message here." class="user-input hidden" id="user-message">
-        <div>
-          <button class="hidden btn-style" id="submit-button">Submit</button>
-        </div>
       </form>
     </section>
     <script type="text/javascript" src="data.js"></script>

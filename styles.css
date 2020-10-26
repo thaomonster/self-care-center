@@ -6,7 +6,8 @@ dark-blue - #134d71;
 white - #ffffff;
 black - #000000;
 */
-/* ~~~~~~ Background & Body ~~~~~~~~~~~ */
+
+/* Background, Body & Button Styles */
 body {
   background: linear-gradient(#134d71, #8c9fac, #f7e4bf) no-repeat center fixed;
   background-size: cover;
@@ -14,6 +15,36 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+.btn-style {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.9em;
+  background-color: #134d71;
+  color: #ffffff;
+  border-radius: 0.3em;
+  border: 0em;
+  height: 1.8em;
+  width: 12.5em;
+}
+
+button:focus {
+  outline:0;
+}
+
+button:active {
+  background-color: #78a7c6!important;
+}
+
+.disabled-btn-style[disabled] {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.9em;
+  background-color: lightgray;
+  color: #000000;
+  border-radius: 0.3em;
+  border: 0em;
+  height: 1.8em;
+  width: 12.5em;
 }
 
 h1 {
@@ -55,7 +86,7 @@ label {
   margin-left: 0.8em;
 }
 
-#recieve-message {
+.recieve-message {
   font-family: 'Quicksand', sans-serif;
   font-size: 0.9em;
   background-color: #134d71;
@@ -84,18 +115,7 @@ label {
 /* Image, Message Style, & Clear Btn Section */
 #button-position {
   position: fixed;
-  margin: 6.8em 0 0 0;
-}
-
-.btn-style {
-  font-family: 'Quicksand', sans-serif;
-  font-size: 0.9em;
-  background-color: #134d71;
-  color: #ffffff;
-  border-radius: 0.3em;
-  border: 0em;
-  height: 1.8em;
-  width: 10em;
+  margin-top: 7em
 }
 
 .mantra-img {
@@ -105,8 +125,8 @@ label {
 }
 
 .message {
-  margin-top: 3em;
-  font-size: 1.1em;
+  margin-top: 3.3em;
+  font-size: 1.06em;
 }
 
 .show-message-container {
@@ -114,17 +134,13 @@ label {
   justify-content: center;
   background-color: #ffffff;
   height: 9em;
-  width: 48em;
+  width: 75%;
   border-radius: 0.5em;
 }
 
 /* Add Button & User Form Input Section */
 #add-button {
   margin-top: 3em;
-}
-
-#submit-button {
-  margin: 1em 8.6em;
 }
 
 #input-error-message {
@@ -136,7 +152,7 @@ label {
 .user-input {
   display: flex;
   flex-direction: column;
-  width: 30em;
+  width: 42em;
   height: 1.8em;
   margin: 2em 0;
 }
