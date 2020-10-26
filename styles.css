@@ -6,6 +6,7 @@ dark-blue - #134d71;
 white - #ffffff;
 black - #000000;
 */
+
 /* Background, Body & Button Styles */
 body {
   background: linear-gradient(#134d71, #8c9fac, #f7e4bf) no-repeat center fixed;

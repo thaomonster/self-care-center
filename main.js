@@ -17,7 +17,8 @@ recieveMsgBtn.addEventListener('click', generateMessage);
 clearBtn.addEventListener('click', clearMessage);
 addMsgBtn.addEventListener('click', displayForm);
 submitBtn.addEventListener('click', submitUserInput);
-changeBtnTrueToFalse();
+radioBtns[0].addEventListener('click', enableRecieveMsgBtn);
+radioBtns[1].addEventListener('click', enableRecieveMsgBtn);
 
 function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
@@ -57,18 +58,17 @@ function getSelectedInput() {
   return selected
 };
 
+function enableRecieveMsgBtn() {
+  recieveMsgBtn.disabled = false;
+};
+
 function generateMessage() {
   var checked = getSelectedInput();
  
   if (checked) {
     checked === 'affirmation' ? generateAffirmation() : generateMantra(checked);
     viewOrHideElement();
-    btnErrorMsg.classList.add('hidden');
-    recieveMsgBtn.disabled = false;
-  } else {
-    btnErrorMsg.classList.remove('hidden');
   };
-
   changeTrueFalseValue(submitBtn, clearBtn);
 };
 
@@ -95,8 +95,8 @@ function displayForm() {
 
 function submitUserInput() {
   displayMsg.innerHTML = "";
-  checkUserInputValue()
-  clearBtn.disabled = false;
+  checkUserInputValue();
+  inputType.value === '' || userMsgInput.value === '' ? clearBtn.disabled = true : clearBtn.disabled = false;
 };
 
 function checkUserInputValue() {
@@ -165,4 +165,4 @@ function changeBtnTrueToFalse() {
 function changeTrueFalseValue(btnOne, btnTwo) {
   btnOne.disabled = true;
   btnTwo.disabled = false;
-}
+};
