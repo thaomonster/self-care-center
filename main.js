@@ -62,9 +62,9 @@ function generateMessage() {
   if (checked) {
     checked === 'affirmation' ? generateAffirmation() : generateMantra(checked);
     showHideElement();
-    hideErrorMsg();
+    btnErrorMsg.classList.add('hidden');
     clearBtn.disabled = false;
-    submitBtn.disabled = true;
+    enableDisableBtnColor();
   } else {
     btnErrorMsg.classList.remove('hidden');
   };
@@ -73,7 +73,7 @@ function generateMessage() {
 function clearMessage() {
   displayMsg.innerHTML = "";
   toggleElement(mantraImg, displayMsg);
-  submitBtn.disabled = false;
+  submitBtn.disabled = true;
   enableDisableBtnColor();
 };
 
@@ -100,11 +100,11 @@ function submitUserInput() {
   } else if (inputType.value.toLowerCase('affirmation') === 'affirmation') {
     affirmation.push(userMsgInput.value);
     generateUserInput();
-    hideErrorMsg();
+    inputErrorMsg.classList.add('hidden');
   } else if (inputType.value.toLowerCase('mantra') === 'mantra') {
     mantra.push(userMsgInput.vale);
     generateUserInput();
-    hideErrorMsg();
+    inputErrorMsg.classList.add('hidden');
   };
   
   clearBtn.disabled = false;
@@ -138,16 +138,11 @@ function removeHiddenClass() {
   displayMsg.classList.remove('hidden');
 };
 
-function hideErrorMsg() {
-  btnErrorMsg.classList.add('hidden');
-  inputErrorMsg.classList.add('hidden');
-};
-
 function enableDisableBtnColor() {
- if (clearBtn.disabled === true || submitBtn.disable === true) {
+ if (clearBtn.disabled === true || submitBtn.disabled === true) {
    clearBtn.classList.add('disabled-btn-style');
    submitBtn.classList.add('disabled-btn-style');
- } else if (clearBtn.disabled === false || submitBtn.disable === false) {
+ } else if (clearBtn.disabled === false || submitBtn.disabled === false) {
   clearBtn.classList.remove('disabled-btn-style');
   submitBtn.classList.remove('disabled-btn-style');
  };
