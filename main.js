@@ -12,6 +12,7 @@ var mantraImg = document.querySelector('.mantra-img');
 var inputType = document.querySelector('#type-of-message');
 var userMsgInput = document.querySelector('#user-message');
 
+window.onload = enableDisableBtnColor();
 recieveMsgBtn.addEventListener('click', generateMessage);
 clearBtn.addEventListener('click', clearMessage);
 addMsgBtn.addEventListener('click', displayForm);
@@ -72,6 +73,8 @@ function generateMessage() {
 function clearMessage() {
   displayMsg.innerHTML = "";
   toggleElement(mantraImg, displayMsg);
+  submitBtn.disabled = false;
+  enableDisableBtnColor();
 };
 
 function showHideElement() {
@@ -85,8 +88,8 @@ function displayForm() {
   userMsgInput.value = "";
   addHiddenClass();
   toggleElement(inputType, userMsgInput);
-  clearBtn.disabled = true;
   submitBtn.disabled = false;
+  enableDisableBtnColor();
 };
 
 function submitUserInput() {
@@ -103,8 +106,9 @@ function submitUserInput() {
     generateUserInput();
     hideErrorMsg();
   };
-
+  
   clearBtn.disabled = false;
+  enableDisableBtnColor();
 };
 
 function generateUserInput() {
@@ -136,5 +140,15 @@ function removeHiddenClass() {
 
 function hideErrorMsg() {
   btnErrorMsg.classList.add('hidden');
-  inputErrorMsg.classList.add('hidden')
+  inputErrorMsg.classList.add('hidden');
+};
+
+function enableDisableBtnColor() {
+ if (clearBtn.disabled === true || submitBtn.disable === true) {
+   clearBtn.classList.add('disabled-btn-style');
+   submitBtn.classList.add('disabled-btn-style');
+ } else if (clearBtn.disabled === false || submitBtn.disable === false) {
+  clearBtn.classList.remove('disabled-btn-style');
+  submitBtn.classList.remove('disabled-btn-style');
+ };
 };

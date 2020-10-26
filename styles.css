@@ -27,6 +27,17 @@ body {
   width: 10em;
 }
 
+.disabled-btn-style {
+  font-family: 'Quicksand', sans-serif;
+  font-size: 0.9em;
+  background-color: lightgray;
+  color: #000000;
+  border-radius: 0.3em;
+  border: 0em;
+  height: 1.8em;
+  width: 10em;
+}
+
 h1 {
   color: #ffffff;
   font-size: 1.2em;
